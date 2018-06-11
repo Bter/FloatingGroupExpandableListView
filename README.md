@@ -1,4 +1,5 @@
 # FloatingGroupExpandableListView
+/br修复当背景色为透明时滑动，FloatView没有遮挡住后面的内容的问题。/br
 FloatingGroupExpandableListView is ~~a huge name~~ an open source Android library that provides a floating group view (*aka* anchored / pinned / sticky section header) at the top of the `ExpandableListView`. This lib is based on Emil Sjölander's [StickyListHeaders](https://github.com/emilsjolander/StickyListHeaders).
 
 ![Sample Screenshot](https://github.com/diegocarloslima/FloatingGroupExpandableListView/raw/master/sample.png)&nbsp;![Sample Animation](https://github.com/diegocarloslima/FloatingGroupExpandableListView/raw/master/sample_animation.gif)
