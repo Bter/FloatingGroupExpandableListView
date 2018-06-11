@@ -200,7 +200,18 @@ public class FloatingGroupExpandableListView extends ExpandableListView {
 			drawDefaultSelector(canvas);
 		}
 
+		canvas.save();
+		if (this.mFloatingGroupEnabled && this.mFloatingGroupView != null) {
+		    //为了使透明背景时也是遮挡效果而增加的代码
+		    Object o = mFloatingGroupView.getTag(R.id.is_show);
+		    if(o instanceof Boolean) {
+			if (this.mFloatingGroupView.getVisibility() == View.VISIBLE && (boolean)o) {
+			    canvas.clipRect(this.getPaddingLeft(), this.getPaddingTop() + mFloatingGroupView.getHeight(), this.getWidth() - this.getPaddingRight(), this.getHeight() - this.getPaddingBottom());
+			}
+		    }
+		}
 		super.dispatchDraw(canvas);
+		canvas.restore();
 
 		if(mFloatingGroupEnabled && mFloatingGroupView != null) {
 			if(!mDrawSelectorOnTop) {
@@ -445,6 +456,11 @@ public class FloatingGroupExpandableListView extends ExpandableListView {
 		final int top = getPaddingTop() + floatingGroupScrollY;
 		final int right = left + mFloatingGroupView.getMeasuredWidth();
 		final int bottom = top + mFloatingGroupView.getMeasuredHeight();
+		if(top == 0){
+                    mFloatingGroupView.setTag(R.id.is_show,true);
+                }else{
+                    mFloatingGroupView.setTag(R.id.is_show,false);
+                }
 		mFloatingGroupView.layout(left, top, right, bottom);
 
 		mFloatingGroupScrollY = floatingGroupScrollY;
