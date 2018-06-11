@@ -202,7 +202,7 @@ public class FloatingGroupExpandableListView extends ExpandableListView {
 
 		canvas.save();
 		if (this.mFloatingGroupEnabled && this.mFloatingGroupView != null) {
-		    //为了使透明背景时也是遮挡效果而增加的代码
+		    //为了使透明背景时也是遮挡效果而增加的代码，增加注释
 		    Object o = mFloatingGroupView.getTag(R.id.is_show);
 		    if(o instanceof Boolean) {
 			if (this.mFloatingGroupView.getVisibility() == View.VISIBLE && (boolean)o) {
