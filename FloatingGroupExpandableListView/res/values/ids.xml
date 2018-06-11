@@ -2,5 +2,6 @@
 <resources>
 
     <item name="fgelv_tag_changed_visibility" type="id"/>
+    <item name="is_show" type="id"/>
 
 </resources>
